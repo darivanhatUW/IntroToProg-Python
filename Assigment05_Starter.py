@@ -6,7 +6,9 @@
 #              Add the each dictionary "row" to a python list "table"
 # ChangeLog (Who,When,What):
 # RRoot,1.1.2030,Created started script
-# DVlachos,2.9.2021,
+# DVlachos,2.9.2021, Added code to open filed and provide data from remainder of the program.
+# DVlachos,2.11.2021, Code is now pulling from text file to the remainder of the program.
+# DVlachos,2.11.2021, Changed input 4 to open the file to replace the contents of the table into the file.
 # ------------------------------------------------------------------------ #
 
 # -- Data -- #
@@ -53,8 +55,9 @@ while (True):
     # Step 4 - Add a new item to the list/Table
     elif (strChoice.strip() == '2'):
         # TODO: Add Code Here
-        dicRow = {"Task": "Wash Dishes", "Priority": "Medium"}
+        dicRow = {"Task": "Wash Dishes", "Priority": "medium".strip()}
         lstTable.append(dicRow)
+        print(lstTable)
         continue
     # Step 5 - Remove a new item from the list/Table
     elif (strChoice.strip() == '3'):
@@ -66,7 +69,7 @@ while (True):
     # Step 6 - Save tasks to the ToDoList.txt file
     elif (strChoice.strip() == '4'):
         # TODO: Add Code Here
-        objFile = open(strFile, "a")
+        objFile = open(strFile, "w")
         for row in lstTable:
             objFile.write(row["Task"] + ", " + row["Priority"] + "\n")
         objFile.close()
