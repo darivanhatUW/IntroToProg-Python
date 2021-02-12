@@ -1,0 +1,2 @@
+Vacuum, high
+Dusting, low
