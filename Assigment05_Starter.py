@@ -25,15 +25,11 @@ strChoice = "" # A Capture the user option selection
 # in a text file called ToDoList.txt into a python list of dictionaries rows (like Lab 5-2)
 # TODO: Add Code Here
 
-objFile = open(strFile, "w")
-dicRow = {"Task": "Vacuum", "Priority": "High"}
-#objFile.write(dicRow["Task"] + " | " + dicRow["Priority"] + "\n")
-lstTable.append(dicRow)
-dicRow = {"Task": "Dust", "Priority": "Low"}
-#objFile.write(dicRow["Task"] + " | " + dicRow["Priority" + "\n"])
-lstTable.append(dicRow)
-objFile.close()
-
+objFile = open(strFile, "r") # open txt file
+for row in objFile:
+    strData = row.split(", ")
+    dicRow = {"Task": strData[0], "Priority": strData[1].strip()}
+    lstTable.append(dicRow)
 
 # -- Input/Output -- #
 # Step 2 - Display a menu of choices to the user
@@ -79,3 +75,5 @@ while (True):
     elif (strChoice.strip() == '5'):
         # TODO: Add Code Here
         break  # and Exit the program
+
+objFile.close()
